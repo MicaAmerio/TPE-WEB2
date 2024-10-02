@@ -1,7 +1,10 @@
  TPE - WEB 2
 
 ## Integrantes:
-Amerio Micaela y Rodríguez Ana Karen
+Amerio Micaela 
+micaelamerio17@gmail.com
+Rodríguez Ana Karen
+anakarenrodriguezconte@gmail.com
 
 ## Tema: 
 Sitio web de productos de limpieza.
