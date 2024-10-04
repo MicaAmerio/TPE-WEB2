@@ -12,5 +12,9 @@ class ProductController { //objeto
         $this->model = new ProductModel();
         $this->view = new ProductView();
     }
-    
+     public function mostrarproducto($id){
+     
+      $producto =$this->model->traerproducto($id);
+     $this-> view->mostrarproducto($producto);
+     }
 }

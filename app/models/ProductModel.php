@@ -11,7 +11,7 @@ class ProductModel {
     public function traerTodos(){
 
         $pdo = $this->model->devolverconexion();
-        $sql = "select * from producto"; //selecciona todo
+        $sql = "select p.*, c.nombre AS categoria from producto p inner join categoria c on c.id_categoria= p.id_categoria"; //selecciona todo
         $query = $pdo->prepare($sql); //prepara la sentencia antes de ejecutar
         $query->execute();// ejecuta la sentencia
     
@@ -21,6 +21,16 @@ class ProductModel {
 
 
         
+    }
+     public function traerproducto($id){
+         $pdo=$this->model->devolverconexion();
+         $sql="select p.*, c.nombre AS categoria from producto p inner join categoria c on c.id_categoria= p.id_categoria where p.id_producto = ?";
+        $query=$pdo->prepare($sql);
+        $query->execute([$id]);
+
+        $producto= $query->fetch(pdo::FETCH_OBJ);
+
+        return $producto;
     }
 
 }

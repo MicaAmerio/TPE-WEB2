@@ -18,7 +18,6 @@ class GeneralController {
     public function mostrarInicio(){
         $productos = $this->modelProduct->traerTodos();
         $this->viewGeneral->mostrarInicio($productos);
-
     }
     
 }

@@ -20,7 +20,7 @@
     <h3>Todos los productos</h3>
     <ul class="list-group">
         {foreach $productos as $producto}
-            <li class="list-group-item">{$producto->nombre}</li>
+            <li class="list-group-item">{$producto->categoria} - {$producto->nombre}  <a href="producto/{$producto->id_producto}"><button> Ver mas</button></a> </li>
         {/foreach}
     </ul>
     </section>
