@@ -2,6 +2,7 @@
     require_once "app/controllers/GeneralController.php"; //incructar codigo php de otro archivo
     require_once "app/controllers/ProductController.php";
     require_once "app/controllers/ABMProductoController.php";
+    require_once "app/controllers/usuariosController.php";
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'); //constante se usa para generar automáticamente la URL base de una aplicación web, de forma dinámica,
     
@@ -26,8 +27,18 @@
             if($parametros[1] == 'productos'){
             $controller= new ABMProductoController();
             $controller->mostrarlista();
-            }
+            } break;
+            case "login":
+                $controller= new usuariosController();
+                $controller->mostrarlogin();
+                break;
+                case "login usuario":
+                $controller =new usuariosController();
+                $controller-> login();
+                break;
+            
         default: 
         break; 
+        
       }
     
