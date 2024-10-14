@@ -8,19 +8,19 @@
     <script src='js/bootstrap.bundle.min.js'></script>
 </head>
 <body>
-<form action="login usuario" method="POST">
+<form action="login_usuario" method="POST">
   <div class="mb-3">
-    <label for="usuario" class="form-label">usuario</label>
-    <input type="usuario" class="form-control" id="usuario" aria-describedby="usuario">
-    <div id="usuarioHelp" class="form-text">completar el campo</div>
+      <label for="usuario" class="form-label">usuario</label>
+      <input name="usuario" type="text" class="form-control" id="usuario" aria-describedby="usuario" required>
+    {* <div id="usuarioHelp" class="form-text">completar el campo</div> *}
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">contraseña</label>
-    <input type="contraseña" class="form-control" id="exampleInputPassword1">
+    <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
   </div>
-  <div class="mb-3 form-check">
+  {* <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">completar</label>
-  </div>
+  </div> *}
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

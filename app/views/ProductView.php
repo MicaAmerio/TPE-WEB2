@@ -14,7 +14,7 @@ class ProductView {
     $this->smarty->display("templates/mostrarproduct.tpl");
     }
     public function mostrarlista($productos){
-    $this->smarty->assign("productos",$productos);
+    $this->smarty->assign("productos", $productos);
     $this->smarty->display("templates/ABMproductos/lista.tpl");
     }
      }

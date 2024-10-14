@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-10-09 21:56:58
+/* Smarty version 4.5.1, created on 2024-10-14 21:24:13
   from 'C:\xampp\htdocs\TPE-WEB2\templates\ABMproductos\lista.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_6706e00a4db7d9_75176708',
+  'unifunc' => 'content_670d6fdd61bf32_56227299',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '339b77a48ab6321201f4f3ab2e92a0a6d9cd5968' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE-WEB2\\templates\\ABMproductos\\lista.tpl',
-      1 => 1728503816,
+      1 => 1728933851,
       2 => 'file',
     ),
   ),
@@ -20,16 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6706e00a4db7d9_75176708 (Smarty_Internal_Template $_smarty_tpl) {
+function content_670d6fdd61bf32_56227299 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' type='text/css' media='screen' href='../css/bootstrap.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.min.css'>
     <?php echo '<script'; ?>
- src='../js/bootstrap.bundle.min.js'><?php echo '</script'; ?>
+ src='js/bootstrap.bundle.min.js'><?php echo '</script'; ?>
 >
 </head>
 <body>
@@ -50,6 +50,8 @@ function content_6706e00a4db7d9_75176708 (Smarty_Internal_Template $_smarty_tpl)
       <th scope="col">nombre</th>
       <th scope="col">marca</th>
       <th scope="col">precio</th>
+      <th scope="col">editar</th>
+      <th scope="col">eliminar</th>
     </tr>
   </thead>
   <tbody>
@@ -68,6 +70,8 @@ $_smarty_tpl->tpl_vars['p']->do_else = false;
 </td>
         <td><?php echo $_smarty_tpl->tpl_vars['p']->value->precio;?>
 </td>
+        <td><button>Editar</button></td>
+        <td><button>Eliminar</button></td>
     </tr>
     <?php
 }

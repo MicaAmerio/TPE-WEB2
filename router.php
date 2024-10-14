@@ -22,21 +22,25 @@
                 $controller= new ProductController();
                 $controller->mostrarproducto($parametros[1]); // producto/:ID
         break;
-
+        
         case "administrador":
-            if($parametros[1] == 'productos'){
+            $controller = new ABMProductoController();
+            $controller->mostrarPanel();
+        break;
+
+        case "administrar-productos":
             $controller= new ABMProductoController();
             $controller->mostrarlista();
-            } break;
-            case "login":
-                $controller= new usuariosController();
-                $controller->mostrarlogin();
-                break;
-                case "login usuario":
-                $controller =new usuariosController();
-                $controller-> login();
-                break;
-            
+        break;
+        case "login":
+            $controller= new usuariosController();
+            $controller->mostrarlogin();
+        break;
+        case "login_usuario":
+            $controller =new usuariosController();
+            $controller-> login();
+        break;
+
         default: 
         break; 
         

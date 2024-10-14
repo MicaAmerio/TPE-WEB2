@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' type='text/css' media='screen' href='../css/bootstrap.min.css'>
-    <script src='../js/bootstrap.bundle.min.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.min.css'>
+    <script src='js/bootstrap.bundle.min.js'></script>
 </head>
 <body>
     <nav class="navbar bg-body-tertiary">
@@ -25,6 +25,8 @@
       <th scope="col">nombre</th>
       <th scope="col">marca</th>
       <th scope="col">precio</th>
+      <th scope="col">editar</th>
+      <th scope="col">eliminar</th>
     </tr>
   </thead>
   <tbody>
@@ -34,6 +36,8 @@
         <td>{$p->nombre}</td>
         <td>{$p->marca}</td>
         <td>{$p->precio}</td>
+        <td><button>Editar</button></td>
+        <td><button>Eliminar</button></td>
     </tr>
     {/foreach}
   </tbody>

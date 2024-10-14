@@ -14,4 +14,8 @@ class GeneralView {
         $this->smarty->assign("productos", $productos);
         $this->smarty->display('templates/inicio.tpl');//plantilla donde muestro todos los productos
     }
+
+    public function mostrarPanel(){
+        $this->smarty->display('templates/panel.tpl');
+    }
 }
