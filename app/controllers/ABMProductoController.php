@@ -17,6 +17,7 @@ require_once "app/views/GeneralView.php";
         //Agregar barrera solo para administradores
         $this->chequearSiEsAdministrador();
       }
+
       public function mostrarlista(){
          $productos=$this->model->traertodos();
          $this->view->mostrarlista($productos);
@@ -37,7 +38,13 @@ require_once "app/views/GeneralView.php";
 
       public function mostrarPanel(){
          $this->viewGeneral->mostrarPanel();
-     }
+      }
+
+      public function eliminar($id){
+         $this->model->eliminar($id);
+         header("Location: " . BASE_URL . 'administrar-productos');
+      }
+      
 
       
  }

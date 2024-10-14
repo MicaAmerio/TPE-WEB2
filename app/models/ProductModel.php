@@ -33,4 +33,11 @@ class ProductModel {
         return $producto;
     }
 
+    public function eliminar($id){
+        $pdo = $this->model->devolverconexion();
+        $sql = "DELETE from producto where id_producto = ?";
+        $query = $pdo->prepare($sql);
+        $query->execute([$id]);
+    }
+
 }

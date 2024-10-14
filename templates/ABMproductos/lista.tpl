@@ -17,7 +17,7 @@
     </nav>
     
     <section>
-    <a href="/">Agregar nuevo producto</a>
+    <a href="agregar-producto">Agregar nuevo producto</a>
     <table class="table">
   <thead>
     <tr>
@@ -37,7 +37,7 @@
         <td>{$p->marca}</td>
         <td>{$p->precio}</td>
         <td><button>Editar</button></td>
-        <td><button>Eliminar</button></td>
+        <td> <a href="eliminar-producto/{$p->id_producto}"><button>Eliminar</button></td>
     </tr>
     {/foreach}
   </tbody>

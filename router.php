@@ -32,6 +32,11 @@
             $controller= new ABMProductoController();
             $controller->mostrarlista();
         break;
+
+        case "eliminar-producto":
+            $controller = new ABMProductoController();
+            $controller->eliminar($parametros[1]);
+        break;
         case "login":
             $controller= new usuariosController();
             $controller->mostrarlogin();
