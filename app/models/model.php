@@ -8,7 +8,7 @@ class Model {
         $this->conexion = $this->createConection();
     }
 
-    public function devolverconexion(){
+    public function devolverconexion(){ //conexión a la base de datos me devuelve "createConection"
         return $this->conexion;
     }
 
