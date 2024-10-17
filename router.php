@@ -1,6 +1,7 @@
 <?php
     require_once "app/controllers/GeneralController.php"; //incructar codigo php de otro archivo
     require_once "app/controllers/ProductController.php";
+    require_once "app/controllers/CategoriasController.php";
     require_once "app/controllers/ABMProductoController.php";
     require_once "app/controllers/usuariosController.php";
 
@@ -19,10 +20,19 @@
         break;
 
         case "producto" :
+            if(isset($parametros[1])){
                 $controller= new ProductController();
                 $controller->mostrarproducto($parametros[1]); // producto/:ID
+            }
         break;
         
+        case "categoria" :
+            if(isset($parametros[1])){
+                $controller= new CategoriasController();
+                $controller->mostrarCategoria($parametros[1]);
+            }
+        break;
+
         case "administrador":
             $controller = new ABMProductoController();
             $controller->mostrarPanel();
