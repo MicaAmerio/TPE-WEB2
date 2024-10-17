@@ -21,7 +21,7 @@
     <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">categoria</th>
       <th scope="col">nombre</th>
       <th scope="col">marca</th>
       <th scope="col">precio</th>
@@ -32,11 +32,11 @@
   <tbody>
     {foreach $productos as $p}
     <tr>
-        <th>{$p->id_producto}</th>
+        <th>{$p->categoria}</th>
         <td>{$p->nombre}</td>
         <td>{$p->marca}</td>
         <td>{$p->precio}</td>
-        <td><button>Editar</button></td>
+        <td><a href="form-editar-producto/{$p->id_producto}"><button>Editar</button></td>
         <td> <a href="eliminar-producto/{$p->id_producto}"><button>Eliminar</button></td>
     </tr>
     {/foreach}

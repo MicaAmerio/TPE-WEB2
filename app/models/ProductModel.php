@@ -22,6 +22,7 @@ class ProductModel {
 
         
     }
+
      public function traerproducto($id){
          $pdo=$this->model->devolverconexion();
          $sql="select p.*, c.nombre AS categoria from producto p inner join categoria c on c.id_categoria= p.id_categoria where p.id_producto = ?";
@@ -38,6 +39,43 @@ class ProductModel {
         $sql = "DELETE from producto where id_producto = ?";
         $query = $pdo->prepare($sql);
         $query->execute([$id]);
+    }
+
+    public function traerCategorias(){
+
+        $pdo = $this->model->devolverconexion();
+        $sql = "select * from categoria"; 
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $categorias = $query->fetchAll(PDO::FETCH_OBJ);
+        return $categorias; 
+     }
+
+     public function agregarproducto($nombre,$marca,$capacidad,$precio,$descripcion, $id_categoria){
+
+            $pDO = $this->model->devolverconexion();
+            
+            $sql = 'INSERT INTO producto (nombre, marca, capacidad, precio, descripcion, id_categoria) 
+                VALUES (?, ?, ?, ? , ?, ?)';
+    
+            $query = $pDO->prepare($sql);
+            try {
+                $query->execute([$nombre,$marca,$capacidad,$precio,$descripcion, $id_categoria]);
+            } catch (\Throwable $th) {
+                return null;
+     }
+     }
+     public function traerParaeditar($id){
+        $pdo = $this->model->devolverconexion();
+        $sql = "SELECT categoria.nombre AS categoria, producto.id_producto, producto.nombre, producto.descripcion, 
+        producto.marca, producto.capacidad, producto.precio FROM producto INNER JOIN categoria 
+        ON producto.id_categoria = categoria.id_categoria WHERE producto.id_producto = ?";
+        $query = $pdo->prepare($sql);
+        $query->execute([$id]);
+
+        $producto = $query->fetch(PDO::FETCH_OBJ);
+        return $producto;
+        
     }
 
 }

@@ -37,6 +37,24 @@
             $controller = new ABMProductoController();
             $controller->eliminar($parametros[1]);
         break;
+
+        case "agregar-producto":
+            $controller = new ABMProductoController();
+            $controller->mostrarFormularioParaAgregar();
+        break;
+
+        case "nuevo-producto": 
+            $controller = new ABMProductoController();
+            $controller->agregarProducto();
+        break;
+        case "form-editar-producto":
+            $controller=new ABMProductoController();
+            $controller->formeditarproducto($parametros[1]);
+        break;
+        /*case "editar-producto":
+            $controller=new ABMProductoController();
+            $controller->editarproducto($parametros[1]);
+        break;*/
         case "login":
             $controller= new usuariosController();
             $controller->mostrarlogin();
