@@ -6,7 +6,76 @@ class ProductModel {
 
     public function __construct() {
         $this->model = new Model();
+        $this->_deploy();
     }
+    private function _deploy() {
+        $pdo = $this->model->devolverconexion();
+
+        $query = $pdo->query('SHOW TABLES');
+        $tables = $query->fetchAll();
+        if(count($tables) == 0) {
+            $sql =
+            'CREATE TABLE `categoria` (
+            `id_categoria` int(20) NOT NULL,
+            `nombre` varchar(100) NOT NULL,
+            `descripcion` text DEFAULT NULL
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;';
+
+            'INSERT INTO `categoria` (`id_categoria`, `nombre`, `descripcion`) VALUES' .
+            '(1, "limpieza", "dshfhsf")'.",".
+            '(2, "bebdas", "xx")';
+
+            'CREATE TABLE `producto` (
+            `id_producto` int(20) NOT NULL,
+            `nombre` varchar(100) NOT NULL,
+            `marca` varchar(100) NOT NULL,
+            `capacidad` varchar(50) NOT NULL,
+            `precio` float NOT NULL,
+            `descripcion` text DEFAULT NULL,
+            `id_categoria` int(20) NOT NULL
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;';
+
+            'INSERT INTO `producto` (`id_producto`, `nombre`, `marca`, `capacidad`, `precio`, `descripcion`, `id_categoria`) VALUES' .
+            '(10, "hshshs", "ggg", "gg", 55, "tt", 1)';
+
+            'CREATE TABLE `usuarios` (
+            `id` int(11) NOT NULL,
+            `usuario` varchar(50) NOT NULL,
+            `contraseña` varchar(100) NOT NULL,
+            `es_admin` tinyint(1) NOT NULL
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;';
+
+            'INSERT INTO `usuarios` (`id`, `usuario`, `contraseña`, `es_admin`) VALUES'.
+            '(1, "webadmin", "$2a$12$9EooIijHnSgvkwzts.qHcuV5ws9dOiViGR98PPTSyCkf3CapUsORO", 1);';
+
+            'ALTER TABLE `categoria`
+            ADD PRIMARY KEY (`id_categoria`);';
+
+            'ALTER TABLE `producto`
+            ADD PRIMARY KEY (`id_producto`),
+            ADD KEY `id_categoria` (`id_categoria`);';
+
+            'ALTER TABLE `usuarios`
+            ADD PRIMARY KEY (`id`);';
+
+            'ALTER TABLE `categoria`
+            MODIFY `id_categoria` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;';
+
+           ' ALTER TABLE `producto`
+            MODIFY `id_producto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;';
+
+
+            'ALTER TABLE `usuarios`
+            MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;';
+
+            'ALTER TABLE `producto`
+            ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
+            COMMIT;';
+            
+        $pdo->query($sql);
+  }
+}
+
 
     public function traerTodos(){
 
