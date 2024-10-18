@@ -3,6 +3,7 @@
     require_once "app/controllers/ProductController.php";
     require_once "app/controllers/CategoriasController.php";
     require_once "app/controllers/ABMProductoController.php";
+    require_once "app/controllers/ABMCategoriaController.php";
     require_once "app/controllers/usuariosController.php";
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'); //constante se usa para generar automáticamente la URL base de una aplicación web, de forma dinámica,
@@ -41,8 +42,18 @@
             $controller->mostrarlista();
         break;
 
+        case "administrar-categorias":
+            $controller= new ABMCategoriaController();
+            $controller->administarCategorias();
+        break;
+
         case "eliminar-producto":
             $controller = new ABMProductoController();
+            $controller->eliminar($parametros[1]);
+        break;
+
+        case "eliminar-categoria":
+            $controller = new ABMCategoriaController();
             $controller->eliminar($parametros[1]);
         break;
 
@@ -51,6 +62,16 @@
             $controller->mostrarFormularioParaAgregar();
         break;
 
+        case "agregar-categoria":
+            $controller= new ABMCategoriaController();
+            $controller->mostrarFormularioParaAgregar();
+        break;
+        
+        case "categoria-agregada": 
+            $controller= new ABMCategoriaController();
+            $controller->agregarCategoria();
+        break;
+        
         case "nuevo-producto": 
             $controller = new ABMProductoController();
             $controller->agregarProducto();

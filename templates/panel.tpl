@@ -18,7 +18,7 @@
     </nav>
     
     <section>
-        <a><button>Administrar categorias</button> </a>
+        <a href="administrar-categorias"><button>Administrar categorias</button> </a>
     </section>
     <section>
         <a href="administrar-productos"><button>Administrar productos</button></a>

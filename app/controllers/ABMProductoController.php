@@ -17,7 +17,7 @@ require_once "app/views/GeneralView.php";
         $this->categModel = new CategoriasModel();
         $this->view = new ProductView();
         $this->viewGeneral = new GeneralView();
-        $this->chequearSiEsAdministrador();
+        //$this->chequearSiEsAdministrador();
       }
 
       public function mostrarlista(){

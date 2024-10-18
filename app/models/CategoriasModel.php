@@ -34,4 +34,18 @@ class CategoriasModel {
         return $categoria;
     }
      
+
+    public function agregarCategoria($nombre, $descripcion){
+        $pdo = $this->model->devolverconexion();
+        $sql = "INSERT INTO `categoria`( `nombre`, `descripcion`) VALUES (?,?);";
+        $query = $pdo->prepare($sql); 
+        $query->execute([$nombre, $descripcion]);
+    }
+
+    public function eliminar($id){
+        $pdo = $this->model->devolverconexion();
+        $sql = "DELETE FROM categoria WHERE id_categoria = ? ";
+        $query = $pdo->prepare($sql);
+        $query->execute([$id]); 
+    }
 }
