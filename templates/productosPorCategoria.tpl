@@ -21,7 +21,7 @@
     <h3>Todos los productos</h3>
     <ul class="list-group">
         {foreach $categoria as $producto}
-            <li class="list-group-item">{$producto->nom} </li>
+            <li class="list-group-item">{$producto->nombre} </li>
         {/foreach}
     </ul>
     </section>

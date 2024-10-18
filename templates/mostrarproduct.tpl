@@ -28,6 +28,7 @@
   </ul>
 </div>
     </section>
+    <a class="btn btn-primary" href="home" role="button">home</a>
     
 </body>
 </html>

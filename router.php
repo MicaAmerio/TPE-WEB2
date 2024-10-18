@@ -20,10 +20,8 @@
         break;
 
         case "producto" :
-            if(isset($parametros[1])){
-                $controller= new ProductController();
-                $controller->mostrarproducto($parametros[1]); // producto/:ID
-            }
+            $controller= new ProductController();
+            $controller->mostrarproducto($parametros[1]); // producto/:ID
         break;
         
         case "categoria" :
@@ -61,10 +59,10 @@
             $controller=new ABMProductoController();
             $controller->formeditarproducto($parametros[1]);
         break;
-        /*case "editar-producto":
+        case "editar-producto":
             $controller=new ABMProductoController();
-            $controller->editarproducto($parametros[1]);
-        break;*/
+            $controller->editarproducto();
+        break;
         case "login":
             $controller= new usuariosController();
             $controller->mostrarlogin();
@@ -72,6 +70,12 @@
         case "login_usuario":
             $controller =new usuariosController();
             $controller-> login();
+        break;
+        case "logout":
+            if (session_status() != PHP_SESSION_ACTIVE){
+                session_start();
+            }
+            $_SESSION = [];
         break;
 
         default: 

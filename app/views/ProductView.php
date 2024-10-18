@@ -22,9 +22,9 @@ class ProductView {
         $this->smarty->assign("categorias", $categorias);
         $this->smarty->display("templates/ABMproductos/formulario-agregar.tpl");
     }
-    public function formularioeditarproducto($producto /**, $categorias */){
+    public function formularioeditarproducto($producto, $categorias){
         $this->smarty->assign("producto", $producto);
-        //$this->smarty->assign("categorias",$categorias);
+        $this->smarty->assign("categorias",$categorias);
         $this->smarty->display('templates/ABMproductos/formedit.tpl');
     }
      }

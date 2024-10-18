@@ -15,6 +15,12 @@ class ProductController { //objeto
      public function mostrarproducto($id){
      
       $producto =$this->model->traerproducto($id);
-     $this-> view->mostrarproducto($producto);
+
+        if($producto){
+            $this-> view->mostrarproducto($producto);
+        }
+        else {
+            header('Location: ' . BASE_URL . 'home');
+        }
      }
 }

@@ -21,7 +21,7 @@
     <h3>Todos los productos</h3>
     <ul class="list-group">
         {foreach $productos as $producto}
-            <li class="list-group-item">{$producto->categoria} - {$producto->nom}  <a href="producto/{$producto->id_producto}"><button> Ver mas</button></a> </li>
+            <li class="list-group-item">{$producto->categoria} - {$producto->nombre}  <a href="producto/{$producto->id_producto}"><button> Ver mas</button></a> </li>
         {/foreach}
     </ul>
     </section>
@@ -31,7 +31,7 @@
     <ul class="list-group">
     {foreach $categorias as $categoria}
             <li class="list-group-item"> {$categoria->nombre} - {$categoria->descripcion} 
-            <a href="categoria/{$categoria->id_categoria}">ver mas</a></li>
+            <a href="categoria/{$categoria->id_categoria}"><button> Ver mas</button></a></li>
         {/foreach}
     </ul>
     </section>

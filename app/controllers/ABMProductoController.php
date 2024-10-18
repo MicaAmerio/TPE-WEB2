@@ -1,23 +1,22 @@
 <?php
 
 require_once "app/models/ProductModel.php";
-//require_once "app/models/CategModel.php";
+require_once "app/models/CategoriasModel.php";
 require_once "app/views/ProductView.php";
 require_once "app/views/GeneralView.php";
  
  class ABMProductoController{
  
     private $model; // propiedades privadas
-    //private $categModel;
+    private $categModel;
     private $view;
     private $viewGeneral;
 
     public function __construct(){
         $this->model = new ProductModel();
-        //$this->categModel = new CategModel();
+        $this->categModel = new CategoriasModel();
         $this->view = new ProductView();
         $this->viewGeneral = new GeneralView();
-        //Agregar barrera solo para administradores
         $this->chequearSiEsAdministrador();
       }
 
@@ -49,7 +48,7 @@ require_once "app/views/GeneralView.php";
       }
 
       public function mostrarFormularioParaAgregar(){
-         $categorias = $this->model->traerCategorias();
+         $categorias = $this->categModel->traerTodas();
          $this->view->mostrarFormularioParaAgregarProducto($categorias);
       }
 
@@ -70,11 +69,37 @@ require_once "app/views/GeneralView.php";
       }
       public function formeditarproducto($id){
          $producto=$this->model->traerParaeditar($id);
-         //$categoria=$this->categModel->traerTodasCategorias();
-         $this->view->formularioeditarproducto($producto);
+         $categorias = $this->categModel->traerTodas();
+         $this->view->formularioeditarproducto($producto, $categorias);
+      }
+      public function editarproducto(){
+         $nombre = $_POST['nombre'];
+         $marca = $_POST['marca'];
+         $capacidad = $_POST['capacidad'];
+         $precio = $_POST['precio'];
+         $descripcion = $_POST['descripcion'];
+         $id_categoria= $_POST['id_categoria'];
+         $producto = $_POST['id_producto'];
+ 
+         //Envío datos al modelo
+         $this->model->editproducto($nombre,$marca,$capacidad,$precio,$descripcion,$id_categoria,$producto);  
+         header('Location: ' . BASE_URL . 'administrar-productos');
+   
+
+         
+         
+         //Redirecciono
+       
+      
+         
 
       }
+    
+      
+          
+     }   
+      
       
 
       
- }
+ 

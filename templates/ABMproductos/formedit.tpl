@@ -15,13 +15,13 @@
             </a>
         </div>
     </nav>
-    <form class="p-2" action="editar-producto" method="POST">
+    <form class="p-2" action="router.php?action=editar-producto" method="POST">
         <div class="mb-3">
-            <input type="hidden" class="form-control" name="id_producto" value="{$producto->id_producto}">
+            <input type="hidden" class="form-control" name="id_producto" value="{$producto->id_producto|default:''}">
         </div>
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre del producto</label>
-            <input type="text" class="form-control" name="nombre" value="{$producto->nombre}">
+            <input type="text" class="form-control" name="nombre" value="{$producto->nombre|default:''}">
         </div>
         <div class="mb-3">
             <label for="marca" class="form-label">Marca</label>
@@ -39,8 +39,16 @@
             <label for="descripcion" class="form-label">Descripcion</label>
             <input type="text" class="form-control" name="descripcion" value="{$producto->descripcion|default:''}">
         </div>
+        <div class="mb-3">
+        <label for="id_categoria" class="form-label">Elegir categoria</label>
+        <select name="id_categoria">
+            {foreach $categorias as $categoria}
+                <option value={$categoria->id_categoria}>{$categoria->nombre} </option>
+            {/foreach}
+        </select>
+    </div>
         <button type="submit" class="btn btn-primary">actualizar producto</button>
     </form>
-    
+
 </body>
 </html>

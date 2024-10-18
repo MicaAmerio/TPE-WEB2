@@ -41,15 +41,6 @@ class ProductModel {
         $query->execute([$id]);
     }
 
-    public function traerCategorias(){
-
-        $pdo = $this->model->devolverconexion();
-        $sql = "select * from categoria"; 
-        $query = $pdo->prepare($sql);
-        $query->execute();
-        $categorias = $query->fetchAll(PDO::FETCH_OBJ);
-        return $categorias; 
-     }
 
      public function agregarproducto($nombre,$marca,$capacidad,$precio,$descripcion, $id_categoria){
 
@@ -77,5 +68,16 @@ class ProductModel {
         return $producto;
         
     }
+    public function editproducto($nombre,$marca,$capacidad,$precio,$descripcion,$id_categoria,$producto){
+        $pDO = $this->model->devolverconexion();
 
-}
+        $sql = 'UPDATE producto SET nombre = ?, marca = ?, capacidad = ?, precio = ?, descripcion = ?, id_categoria= ? WHERE id_producto = ?';
+
+        $query = $pDO->prepare($sql);
+        $query->execute([$nombre,$marca,$capacidad,$precio,$descripcion,$id_categoria,$producto]);
+
+     
+    }
+
+     
+   }
