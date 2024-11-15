@@ -21,6 +21,12 @@ class CategoriaView {
 
    }
 
+   public function formularioeditarcategoria($categoria){
+    $this->smarty->assign ("categoria", $categoria);
+    $this->smarty->display ("templates/ABMcategorias/form-editar.tpl");
+   }
+
+
    public function mostrarFormularioParaAgregar(){
     $this->smarty->display("templates/ABMcategorias/form-agregar.tpl");
    }

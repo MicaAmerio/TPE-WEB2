@@ -3,6 +3,7 @@
 require_once "app/models/CategoriasModel.php";
 require_once "app/views/CategoriaView.php";
 
+
  
  class ABMCategoriaController{
  
@@ -12,6 +13,8 @@ require_once "app/views/CategoriaView.php";
     public function __construct(){
         $this->model = new CategoriasModel();
         $this->view = new CategoriaView();
+        
+   
 
 
         //Agregar barrera solo para administradores
@@ -50,17 +53,31 @@ require_once "app/views/CategoriaView.php";
          }
       }
 
-      public function mostrarPanel(){
-         $this->viewGeneral->mostrarPanel();
-      }
-
+      //public function mostrarPanel(){
+       //  $this->viewGeneral->mostrarPanel();
+       
+     
       public function eliminar($id){
          $this->model->eliminar($id);
          header("Location: " . BASE_URL . 'administrar-categorias');
       }
+      public function formeditarcategoria($id){
+         $categoria=$this->model->traerCategoriaParaEditar($id);
+         $this->view->formularioeditarcategoria($categoria);
+      }
+      public function editarcategoria(){
+         $categoria= $_POST['id_categoria'];
+         $nombre = $_POST['nombre'];
+         $descripcion=$_POST['descripcion'];
+ 
+         //Envío datos al modelo
+         $this->model->editcategoria($categoria,$nombre,$descripcion);  
+         header('Location: ' . BASE_URL . 'administrar-categorias');
 
 
       
+ 
+        }
 
       
  } 

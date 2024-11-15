@@ -33,6 +33,17 @@ class CategoriasModel {
 
         return $categoria;
     }
+
+    public function traerCategoriaParaEditar($id){
+        $pdo = $this->model->devolverconexion();
+        $sql = "select * FROM categoria WHERE id_categoria = ? "; //se usa sino de preg para seguirdad "inyecciones"
+        $query = $pdo->prepare($sql); 
+        $query-> execute([$id]);
+
+        $categoria = $query->fetch(pdo::FETCH_OBJ); //categoria traigo un solo objeto(fila de la tabla)
+
+        return $categoria;
+    }
      
 
     public function agregarCategoria($nombre, $descripcion){
@@ -47,5 +58,15 @@ class CategoriasModel {
         $sql = "DELETE FROM categoria WHERE id_categoria = ? ";
         $query = $pdo->prepare($sql);
         $query->execute([$id]); 
+    }
+    public function editcategoria($id_categoria,$nombre,$descripcion){
+        $pDO = $this->model->devolverconexion();
+
+        $sql = 'UPDATE categoria SET nombre = ?,descripcion = ?  WHERE id_categoria = ?';
+
+        $query = $pDO->prepare($sql);
+        $query->execute([$nombre,$descripcion, $id_categoria]);
+
+     
     }
 }

@@ -23,8 +23,12 @@
     <tr>
       <th scope="col">nombre</th>
       <th scope="col">descripcion</th>
-       <th scope="col">id</th>
+      <th scope="col">editar</th>
       <th scope="col">eliminar</th>
+      
+      
+       
+    
     </tr>
   </thead>
   <tbody>
@@ -34,6 +38,7 @@
         <td>{$categoria->descripcion}</td>
         <td>{$categoria->id_categoria}</td>
          <td> <a href="eliminar-categoria/{$categoria->id_categoria}"><button>Eliminar</button></td>
+         <td> <a href="form-editar-categoria/{$categoria->id_categoria}"><button>Editar</button></td>
     </tr>
     {/foreach}
   </tbody>

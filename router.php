@@ -84,6 +84,14 @@
             $controller=new ABMProductoController();
             $controller->editarproducto();
         break;
+        case "form-editar-categoria":
+            $controller=new ABMCategoriaController();
+            $controller->formeditarcategoria($parametros[1]);
+        break;
+        case "editar-categoria":
+            $controller=new ABMCategoriaController();
+            $controller->editarcategoria();
+            break;
         case "login":
             $controller= new usuariosController();
             $controller->mostrarlogin();
